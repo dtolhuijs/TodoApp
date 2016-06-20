@@ -1,6 +1,3 @@
-// fix total-count
-$("#total-count").html($(".todo").length);
-
 function updateCounters() {
   var ntodos = $(".todo").length;
   var ncompleted = $(".completed").length
@@ -11,3 +8,13 @@ function updateCounters() {
 }
 
 updateCounters();
+
+function toggleDone() {
+  var checkbox = this;
+
+  $(checkbox).parent().toggleClass("completed");
+
+  $("input[type=checkbox]").bind('change', toggleDone);
+
+  updateCounters();
+}
