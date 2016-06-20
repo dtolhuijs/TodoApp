@@ -62,3 +62,10 @@ function submitTodo(event) {
     }
   }
 $("form").bind('submit', submitTodo);
+
+function cleanUpDoneTodos(event) {
+  event.preventDefault();
+  $.when($(".completed").remove())
+    .then(updateCounters);
+}
+$("#clean-up").bind('click', cleanUpDoneTodos);
